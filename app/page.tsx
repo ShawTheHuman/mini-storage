@@ -1,65 +1,115 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { getUnits } from "@/lib/data";
+import { ArrowRight, CheckCircle2, ShieldCheck, Truck } from "lucide-react";
 
-export default function Home() {
+export default async function Home() {
+  const allUnits = await getUnits();
+  const featuredUnits = allUnits.slice(0, 3); // Show first 3 units
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-background overflow-hidden">
+        <div className="container mx-auto relative z-10 flex flex-col items-center text-center gap-8">
+          <Badge className="px-4 py-1 text-sm" variant="secondary">
+            New Location Open Now
+          </Badge>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl text-balance">
+            Secure, Affordable Storage near you.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl text-balance">
+            Rent your unit online in minutes. 24/7 access, climate control options, and state-of-the-art security.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link href="/units">
+              <Button size="lg" className="px-8 text-md h-12">
+                Find a Unit
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="/location">
+              <Button size="lg" variant="outline" className="px-8 text-md h-12">
+                View Location
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Background decorative elements */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -z-10" />
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto grid md:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center text-center gap-4 p-6 rounded-lg bg-background border shadow-sm">
+            <div className="p-3 rounded-full bg-primary/10 text-primary">
+              <ShieldCheck className="h-8 w-8" />
+            </div>
+            <h3 className="font-bold text-xl">Top-Tier Security</h3>
+            <p className="text-muted-foreground">24/7 video surveillance, gated access, and individual unit alarms.</p>
+          </div>
+          <div className="flex flex-col items-center text-center gap-4 p-6 rounded-lg bg-background border shadow-sm">
+            <div className="p-3 rounded-full bg-primary/10 text-primary">
+              <CheckCircle2 className="h-8 w-8" />
+            </div>
+            <h3 className="font-bold text-xl">Climate Control</h3>
+            <p className="text-muted-foreground">Keep your valuables safe from extreme temperatures and humidity.</p>
+          </div>
+          <div className="flex flex-col items-center text-center gap-4 p-6 rounded-lg bg-background border shadow-sm">
+            <div className="p-3 rounded-full bg-primary/10 text-primary">
+              <Truck className="h-8 w-8" />
+            </div>
+            <h3 className="font-bold text-xl">Easy Access</h3>
+            <p className="text-muted-foreground">Drive-up units and wide loading docks for hassle-free moving.</p>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Featured Units */}
+      <section className="py-20 container mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4">
+          <div className="space-y-1">
+            <h2 className="text-3xl font-bold tracking-tight">Featured Units</h2>
+            <p className="text-muted-foreground">Popular sizes available for immediate move-in.</p>
+          </div>
+          <Link href="/units">
+            <Button variant="ghost">View All Units <ArrowRight className="ml-2 h-4 w-4" /></Button>
+          </Link>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredUnits.map((unit) => (
+            <Card key={unit.id} className="flex flex-col">
+              <CardHeader>
+                <CardTitle className="flex justify-between items-center">
+                  <span>{unit.size}</span>
+                  <span className="text-xl font-bold">${unit.price}<span className="text-sm font-normal text-muted-foreground">/mo</span></span>
+                </CardTitle>
+                <CardDescription>{unit.name} • {unit.location}</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <p className="text-sm text-muted-foreground mb-4">{unit.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {unit.features.map((feature) => (
+                    <Badge key={feature} variant="secondary" className="font-normal text-xs">{feature}</Badge>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Link href={`/units/${unit.id}`} className="w-full">
+                  <Button className="w-full" disabled={!unit.isAvailable}>
+                    {unit.isAvailable ? "Reserve Now" : "Waitlist"}
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
