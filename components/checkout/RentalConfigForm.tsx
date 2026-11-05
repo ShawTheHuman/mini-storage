@@ -94,7 +94,7 @@ export function RentalConfigForm({ unit }: RentalConfigFormProps) {
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="guest-email">Email Address</Label>
+                                    <Label htmlFor="guest-email" className="p-6 rounded-xl">Email Address</Label>
                                     <Input id="guest-email" type="email" placeholder="john@example.com" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} required />
                                 </div>
                                 <div className="space-y-2">
