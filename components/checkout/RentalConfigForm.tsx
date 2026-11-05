@@ -123,7 +123,7 @@ export function RentalConfigForm({ unit }: RentalConfigFormProps) {
                             <Label
                                 htmlFor={`d-${option.months}`}
                                 className={cn(
-                                    "flex flex-col justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer h-full",
+                                    "flex flex-col justify-between rounded-xl border-2 bg-popover p-6 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer h-full border-slate-200",
                                     duration === option.months && "border-primary"
                                 )}
                             >
