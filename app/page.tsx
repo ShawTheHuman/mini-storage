@@ -17,8 +17,8 @@ export default async function Home() {
           <Badge className="px-4 py-1 text-sm" variant="secondary">
             New Location Open Now
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl text-balance">
-            Secure, Affordable Storage near you.
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl text-balance text-primary">
+            Secure, Affordable Storage close to home.
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl text-balance">
             Rent your unit online in minutes. 24/7 access, climate control options, and state-of-the-art security.
