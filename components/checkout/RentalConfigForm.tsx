@@ -94,7 +94,7 @@ export function RentalConfigForm({ unit }: RentalConfigFormProps) {
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="guest-email">Email Address</Label>
+                                    <Label htmlFor="guest-email" className="p-6 rounded-xl">Email Address</Label>
                                     <Input id="guest-email" type="email" placeholder="john@example.com" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} required />
                                 </div>
                                 <div className="space-y-2">
@@ -123,7 +123,7 @@ export function RentalConfigForm({ unit }: RentalConfigFormProps) {
                             <Label
                                 htmlFor={`d-${option.months}`}
                                 className={cn(
-                                    "flex flex-col justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer h-full",
+                                    "flex flex-col justify-between rounded-xl border-2 bg-popover p-6 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer h-full border-slate-200",
                                     duration === option.months && "border-primary"
                                 )}
                             >

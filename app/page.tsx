@@ -12,13 +12,13 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-background overflow-hidden">
+      <section className="relative py-20 md:py-24 bg-gradient-to-br from-primary/10 via-background to-background overflow-hidden">
         <div className="container mx-auto relative z-10 flex flex-col items-center text-center gap-8">
           <Badge className="px-4 py-1 text-sm" variant="secondary">
             New Location Open Now
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl text-balance">
-            Secure, Affordable Storage near you.
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl text-balance text-primary">
+            Secure, Affordable Storage close to home.
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl text-balance">
             Rent your unit online in minutes. 24/7 access, climate control options, and state-of-the-art security.
@@ -31,7 +31,7 @@ export default async function Home() {
               </Button>
             </Link>
             <Link href="/location">
-              <Button size="lg" variant="outline" className="px-8 text-md h-12">
+              <Button size="lg" variant="secondary" className="px-8 text-md h-12">
                 View Location
               </Button>
             </Link>
