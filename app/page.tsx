@@ -25,7 +25,7 @@ export default async function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/units">
-              <Button size="lg" className="px-8 text-md h-12">
+              <Button size="lg" className="px-10 text-md h-12 rounded-full">
                 Find a Unit
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
